@@ -86,8 +86,40 @@ int main() {
                 }
 
                 cout << endl;
+                break;
             }
-            break;
+
+            case 3: {
+
+                if (studentCount == 0) {
+                    cout << "Tuscias" << endl;
+                    break;
+                }
+
+                cout << "Pasirinkite kokia mokinius norite patikrinti pazymius" << endl;
+                for (int i = 0; i < studentCount; i++) {
+                    cout << i + 1 << ". " << studentNames[i] << endl;
+                }
+
+                int choiceNumber;
+                cin >> choiceNumber;
+
+                while (choiceNumber < 1 || choiceNumber > studentCount) {
+                    cout << "Parasykite dar karta" << endl;
+                    cin >> choiceNumber;
+                }
+
+                int index = choiceNumber - 1;
+
+                cout << "\nMokinys: " << studentNames[index] << endl;
+                cout << "Pazymiai: ";
+                for (int j = 0; j < gradeCounts[index]; j++) {
+                    cout << studentGrades[index][j] << " ";
+                }
+                cout << endl;
+                break;
+            }
+            
         }
     } while (choice != 7);
 
