@@ -119,7 +119,67 @@ int main() {
                 cout << endl;
                 break;
             }
-            
+
+            /* Atnaujinti programa */
+            case 4: {
+                if (studentCount == 0) {
+                    cout << "Tuscias" << endl;
+                    break;
+                }
+
+                cout << "Pasirinkite kokia mokiniui jus norite atnaujinti pazymius" << endl;
+                for (int i = 0; i < studentCount; i++) {
+                    cout << i + 1 << ". " << studentNames[i] << endl;
+                }
+
+                int choiceNumber;
+                int choiceGrade;
+                int newGrade;
+
+                cin >> choiceNumber;
+
+                while (choiceNumber < 1 || choiceNumber > studentCount) {
+                    cout << "Parasykite dar karta" << endl;
+                    cin >> choiceNumber;
+                }
+
+                int studentIndex = choiceNumber - 1;
+
+
+                cout << "Mokinys: " << studentNames[studentIndex] << endl;
+                cout << "Pazymiai: ";
+                for (int j = 0; j < gradeCounts[studentIndex]; j++) {
+                    cout << j + 1 << ". " << studentGrades[studentIndex][j] << " ";
+                }
+
+                cin >> choiceGrade;
+                while (choiceGrade < 1 || choiceGrade > gradeCounts[studentIndex]) {
+                    cout << "Parasykite dar karta" << endl;
+                    cin >> choiceGrade;
+                }
+
+                int gradeIndex = choiceGrade - 1;
+
+                cout << "\nIveskite nauja pazymi (1-10): " << endl;
+                cin >> newGrade;
+
+                while (newGrade < MIN_GRADES || newGrade > MAX_GRADES) {
+                    cout << "Klaida" << endl;
+                    cin >> newGrade;
+                }
+
+                studentGrades[studentIndex][gradeIndex] = newGrade;
+
+                cout << "Pazymys sekmingai atnaujintas!" << endl;
+
+                break;
+
+            }
+            case 5: {
+                if (studentCount == 0) {
+                    cout << "Tuscias" << endl;
+                }
+            }
         }
     } while (choice != 7);
 
