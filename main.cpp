@@ -214,6 +214,43 @@ int main() {
 
                 break;
             }
+
+            case 6: {
+                if (studentCount == 0) {
+                    cout << "Tuscias" << endl;
+                    break;
+                }
+
+                int choiceNumber;
+
+                cout << "Pasirinkite kokia mokiniu norite pasalinti" << endl;
+                for (int i = 0; i < studentCount; i++) {
+                    cout << i + 1 << ". " << studentNames[i] << endl;
+                }
+                cin >> choiceNumber;
+
+                while (choiceNumber < 1 || choiceNumber > studentCount) {
+                    cout << "Parasykite dar karta" << endl;
+                    cin >> choiceNumber;
+                }
+
+                int studentIndex = choiceNumber - 1;
+
+                for (int i = studentIndex; i < studentCount - 1; i++) {
+                    studentNames[i] = studentNames[i + 1];
+                    gradeCounts[i] = gradeCounts[i + 1];
+
+                    for (int j = 0; j < gradeCounts[i + 1]; j++) {
+                        studentGrades[i][j] = studentGrades[i + 1][j];
+                    }
+                }
+
+                studentCount--;
+
+                cout << "Mokinys sekmingai pasalintas is saraso" << endl;
+
+                break;
+            }
         }
     } while (choice != 7);
 
