@@ -251,6 +251,14 @@ int main() {
 
                 break;
             }
+            case 7: {
+                cout << "Programa baigia darba. Viso gero!" << endl;
+                break;
+            }
+            default: {
+                cout << "Klaida: Neteisingas pasirinikimas! Iveskite skaiciu nuo 1 iki 7" << endl;
+                break;
+            }
         }
     } while (choice != 7);
 
