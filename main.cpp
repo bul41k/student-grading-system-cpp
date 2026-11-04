@@ -179,6 +179,40 @@ int main() {
                 if (studentCount == 0) {
                     cout << "Tuscias" << endl;
                 }
+
+                int choiceNumber;
+
+                cout << "Pasirinktie kokio mokinio norite paskaiuoti vidurkis pazymius" << endl;
+                for (int i = 0; i < studentCount; i++) {
+                    cout << i + 1 << ". " << studentNames[i] << endl;
+                }
+                cin >> choiceNumber;
+
+                while (choiceNumber < 1 || choiceNumber > studentCount) {
+                    cout << "Parasykite dar karta" << endl;
+                    cin >> choiceNumber;
+                }
+
+
+                int studentIndex = choiceNumber - 1;
+
+                if (gradeCounts[studentIndex] == 0) {
+                    cout << "Mokinys " << studentNames[studentIndex] << " neturi ivestu pazymius" << endl;
+                    break;
+                }
+
+                int suma = 0;
+
+                for (int j = 0; j < gradeCounts[studentIndex]; j++) {
+                    suma += studentGrades[studentIndex][j];
+                }
+
+                double averageGrade = static_cast<double>(suma) / gradeCounts[studentIndex];
+
+                cout << "\nMokinys: " << studentNames[studentIndex] << endl;
+                cout << "Vidurkis pazymiai: " << averageGrade << endl;
+
+                break;
             }
         }
     } while (choice != 7);
