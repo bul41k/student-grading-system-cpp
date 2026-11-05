@@ -46,13 +46,13 @@ int main() {
                 cin >> numGrades;
 
                 while (numGrades < MIN_GRADES || numGrades > MAX_GRADES) {
-                    cout << "Klaida: pazymiu skaicius turi buti nuo 1 iki 10. Iveskite is naujo:" << endl;
+                    cout << "Klaida: pazymiu skaicius turi buti nuo 1 iki 10. Iveskite is naujo:";
                     cin >> numGrades;
                 }
 
                 for (int j = 0; j < numGrades; j++) {
                     int grade;
-                    cout << "Iveskite " << j+1 << " -aji pazymi (1-10): " << endl;
+                    cout << "Iveskite " << j+1 << "-aji pazymi (1-10): " << endl;
                     cin >> grade;
 
                     while (grade < MIN_GRADES || grade > MAX_GRADES) {
@@ -78,12 +78,13 @@ int main() {
                 cout << "\n--- VISU MOKINIU IR JU PAZYMIU SARASAS ---" << endl;
 
                 for (int i = 0; i < studentCount; i++) {
-                    cout << i + 1 << ". " << studentNames[i] << endl;
+                    cout << i + 1 << ". " << studentNames[i] << " - Pazymiai: ";
 
 
                     for (int j = 0; j < gradeCounts[i]; j++) {
                         cout << studentGrades[i][j] << " ";
                     }
+                    cout << endl;
                 }
 
                 cout << endl;
@@ -94,7 +95,7 @@ int main() {
             case 3: {
 
                 if (studentCount == 0) {
-                    cout << "Tuscias" << endl;
+                    cout << "Sarasas tuscias. Nera ivestu mokiniu." << endl;
                     break;
                 }
 
@@ -108,7 +109,7 @@ int main() {
                 cin >> choiceNumber;
 
                 while (choiceNumber < 1 || choiceNumber > studentCount) {
-                    cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki" << studentCount << endl;
+                    cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki " << studentCount << endl;
                     cin >> choiceNumber;
                 }
 
@@ -148,7 +149,7 @@ int main() {
                 cin >> choiceNumber;
 
                 while (choiceNumber < 1 || choiceNumber > studentCount) {
-                    cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki" << studentCount << endl;
+                    cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki " << studentCount << endl;
                     cin >> choiceNumber;
                 }
 
@@ -171,7 +172,7 @@ int main() {
                 cin >> choiceGrade;
 
                 while (choiceGrade < 1 || choiceGrade > gradeCounts[studentIndex]) {
-                    cout << "Neteisingas pazymio numeris. Iveskite skaiciu nuo 1 iki" << studentCount << endl;
+                    cout << "Neteisingas pazymio numeris. Iveskite skaiciu nuo 1 iki" << gradeCounts[studentIndex] << endl;
                     cin >> choiceGrade;
                 }
 
@@ -201,7 +202,7 @@ int main() {
 
                 int choiceNumber;
 
-                cout << "Pasirinktie kokio mokinio norite paskaiuoti vidurkis pazymius" << endl;
+                cout << "Pasirinktie kokio mokinio norite paskaicuoti vidurkis pazymius" << endl;
                 for (int i = 0; i < studentCount; i++) {
                     cout << i + 1 << ". " << studentNames[i] << endl;
                 }
@@ -229,7 +230,7 @@ int main() {
                 double averageGrade = static_cast<double>(suma) / gradeCounts[studentIndex];
 
                 cout << "\nMokinys: " << studentNames[studentIndex] << endl;
-                cout << "Vidurkis pazymiai: " << averageGrade << endl;
+                cout << "Vidurkis: " << averageGrade << endl;
 
                 break;
             }
@@ -249,7 +250,7 @@ int main() {
                 cin >> choiceNumber;
 
                 while (choiceNumber < 1 || choiceNumber > studentCount) {
-                    cout << "Neteisingas pazymio numeris. Iveskite skaiciu nuo 1 iki" << studentCount << endl;
+                    cout << "Neteisingas mokinio numeris. Iveskite skaiciu nuo 1 iki" << studentCount << endl;
                     cin >> choiceNumber;
                 }
 
